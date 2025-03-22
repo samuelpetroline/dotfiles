@@ -16,6 +16,7 @@ brew tap FelixKratz/formulae
 
 # Brew Formulae
 brew install neovim
+brew install asdf
 brew install tree
 brew install wget
 brew install jq
@@ -53,7 +54,6 @@ echo "Starting Services (grant permissions)..."
 skhd --start-service
 brew services start yabai
 brew services start sketchybar
-brew services start svim
 
 csrutil status
 echo "Do not forget to disable SIP"
