@@ -47,12 +47,15 @@ cp .skhdrc $HOME
 cp .yabairc $HOME
 cp .zshrc $HOME
 
+# Copy .config to $HOME
+echo "Copying .config to $HOME"
+cp -R .config/* $HOME/.config/
+
 source $HOME/.zshrc
 
 # Start Services
 echo "Starting Services (grant permissions)..."
 skhd --start-service
-brew services start yabai
 brew services start sketchybar
 
 csrutil status
