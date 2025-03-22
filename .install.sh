@@ -26,7 +26,7 @@ brew install neofetch
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 brew install koekeishiya/formulae/skhd
-brew install koekeishiya/formulae/yabaibrew
+brew install koekeishiya/formulae/yabai
 brew install sketchybar
 
 # Brew Casks
@@ -49,9 +49,9 @@ cp .zshrc $HOME
 
 # Copy .config to $HOME
 echo "Copying .config to $HOME"
+mkdir -p $HOME/.config
 cp -R .config/* $HOME/.config/
 
-source $HOME/.zshrc
 
 # Start Services
 echo "Starting Services (grant permissions)..."
@@ -61,3 +61,5 @@ brew services start sketchybar
 csrutil status
 echo "Do not forget to disable SIP"
 echo "Add sudoer manually:\n '$(whoami) ALL = (root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | awk "{print \$1;}") $(which yabai) --load-sa' to '/private/etc/sudoers.d/yabai'"
+
+source $HOME/.zshrc
