@@ -27,6 +27,7 @@ brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 brew install koekeishiya/formulae/skhd
 brew install koekeishiya/formulae/yabai
+brew install borders
 brew install sketchybar
 
 # Brew Casks
