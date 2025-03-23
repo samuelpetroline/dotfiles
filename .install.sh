@@ -15,6 +15,7 @@ brew tap homebrew/cask-fonts
 brew tap FelixKratz/formulae
 
 # Brew Formulae
+brew install stow 
 brew install neovim
 brew install asdf
 brew install tree
@@ -42,17 +43,9 @@ rm -rf /tmp/SFMono_Nerd_Font/
 
 curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.4/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf
 
-# Copy dotfiles to $HOME
-echo "Copying dotfiles to $HOME"
-cp .skhdrc $HOME
-cp .yabairc $HOME
-cp .zshrc $HOME
-
-# Copy .config to $HOME
-echo "Copying .config to $HOME"
-mkdir -p $HOME/.config
-cp -R .config/* $HOME/.config/
-
+# Copy Configuration Files
+echo "Copying configuration files..."
+zsh .copy.sh
 
 # Start Services
 echo "Starting Services (grant permissions)..."

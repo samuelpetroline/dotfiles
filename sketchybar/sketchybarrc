@@ -137,4 +137,6 @@ sketchybar --subscribe net wifi_change wired_change
 ############## FINALIZING THE SETUP ##############
 sketchybar --update
 
+source ~/.config/sketchybar/s.copy.sh
+
 echo "sketchybar configuration loaded..."
