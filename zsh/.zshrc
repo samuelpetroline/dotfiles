@@ -11,7 +11,19 @@ function glg() {
 }
 
 function gps() {
-  git push
+  git push -u
+}
+
+function gpsf() {
+  git push --force
+}
+
+function grbsprd() {
+  BRANCH=$(git branch --show-current)
+  git switch main
+  git pull
+  git switch $BRANCH
+  git rebase main
 }
 
 function gpl() {
@@ -101,3 +113,4 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias lzd='lazydocker'
