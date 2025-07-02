@@ -19,11 +19,20 @@ function gpsf() {
 }
 
 function grbsprd() {
+  MAIN=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
   BRANCH=$(git branch --show-current)
-  git switch main
+  git switch $MAIN 
   git pull
   git switch $BRANCH
-  git rebase main
+  git rebase $MAIN
+}
+
+function grbc() {
+  git rebase --continue
+}
+
+function grba() {
+  git rebase --abort
 }
 
 function gpl() {
@@ -32,7 +41,7 @@ function gpl() {
 
 function gcp() {
   git commit -m "$1"
-  git push
+  git push -u
 }
 
 function gc() {
@@ -103,6 +112,7 @@ function cl() {
 
 alias vim="nvim"
 
+alias lzd='lazydocker'
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 
@@ -113,4 +123,3 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias lzd='lazydocker'
