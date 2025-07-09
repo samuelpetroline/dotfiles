@@ -1,5 +1,7 @@
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
 
+source ~/oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 function gad() {
@@ -35,6 +37,10 @@ function grba() {
   git rebase --abort
 }
 
+function grbs() {
+    git rebase -i $1
+}
+
 function gpl() {
   git pull
 }
@@ -56,27 +62,14 @@ function gsw() {
   git switch "$1"
 }
 
-function adm() {
-    sqitch add $1 -n "$2"
-}
-
-function gcf() {
-    git add .
-    git commit -a -m "$1"
-    git push -f
+function gswmain() {
+  MAIN=$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')
+  git switch $MAIN
+  git pull
 }
 
 function gfp() {
     git push -f
-}
-
-function grb {
-    git fetch
-    git rebase origin/dev
-}
-
-function gsq {
-    git rebase -i $1
 }
 
 function gco {
