@@ -1,6 +1,4 @@
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
-
-source ~/oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting)
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
@@ -47,7 +45,7 @@ function gpl() {
 
 function gcp() {
   git commit -m "$1"
-  git push -u
+  git push 
 }
 
 function gc() {
