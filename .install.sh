@@ -37,6 +37,7 @@ brew install koekeishiya/formulae/skhd
 brew install koekeishiya/formulae/yabai
 brew install borders
 brew install sketchybar
+brew install lazygit
 
 # Brew Casks
 echo "Installing Brew Casks..."

@@ -2,6 +2,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlightin
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
 function gad() {
     git add --all
 }
@@ -11,11 +13,20 @@ function glg() {
 }
 
 function gps() {
-  git push -u
+  git push
+}
+
+function gpsu() {
+  BRANCH=$(git branch --show-current)
+  git push --set-upstream origin $BRANCH
 }
 
 function gpsf() {
   git push --force
+}
+
+function gbc() {
+  git branch --show-current
 }
 
 function grbsprd() {
@@ -54,6 +65,11 @@ function gc() {
 
 function gswc() {
   git switch -c "$1"
+}
+
+function gswp() {
+  gsw "$1"
+  gpl
 }
 
 function gsw() {
@@ -101,9 +117,16 @@ function cl() {
   clear
 }
 
-alias vim="nvim"
+function killport() {
+  kill $(lsof -i :$1)
+}
 
+alias vim="nvim"
+alias lzg="lazygit"
 alias lzd='lazydocker'
+alias tm='task-master'
+alias taskmaster='task-master'
+
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
 
@@ -114,3 +137,5 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="$HOME/.local/bin:$PATH"
+
