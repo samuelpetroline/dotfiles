@@ -31,6 +31,7 @@ brew install jq
 brew install gh
 brew install ripgrep
 brew install neofetch
+brew install difftastic
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
 brew install koekeishiya/formulae/skhd
@@ -63,12 +64,6 @@ csrutil status
 echo "Do not forget to disable SIP"
 echo "Add sudoer manually:\n '$(whoami) ALL = (root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | awk "{print \$1;}") $(which yabai) --load-sa' to '/private/etc/sudoers.d/yabai'"
 
-stow atuin
-stow nvim
-stow zsh --adopt
-stow oh-my-zsh
-stow skhd
-stow sketchybar
-stow yabai
+stow .
 
 source $HOME/.zshrc
