@@ -54,6 +54,10 @@ function gpl() {
   git pull
 }
 
+function gplr() {
+  git pull --rebase
+}
+
 function gcp() {
   git commit -m "$1"
   git push 
