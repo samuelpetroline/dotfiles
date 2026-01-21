@@ -34,11 +34,14 @@ brew install neofetch
 brew install difftastic
 brew install zsh-autosuggestions
 brew install zsh-syntax-highlighting
-brew install koekeishiya/formulae/skhd
-brew install koekeishiya/formulae/yabai
 brew install borders
-brew install sketchybar
+#brew install koekeishiya/formulae/skhd
+#brew install koekeishiya/formulae/yabai
+#brew install sketchybar
 brew install lazygit
+brew install fzf
+brew install bat
+brew install fd
 
 # Brew Casks
 echo "Installing Brew Casks..."
@@ -56,13 +59,13 @@ curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v1.0.
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
 # Start Services
-echo "Starting Services (grant permissions)..."
-skhd --start-service
-brew services start sketchybar
+#echo "Starting Services (grant permissions)..."
+#skhd --start-service
+#brew services start sketchybar
 
-csrutil status
-echo "Do not forget to disable SIP"
-echo "Add sudoer manually:\n '$(whoami) ALL = (root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | awk "{print \$1;}") $(which yabai) --load-sa' to '/private/etc/sudoers.d/yabai'"
+#csrutil status
+#echo "Do not forget to disable SIP"
+#echo "Add sudoer manually:\n '$(whoami) ALL = (root) NOPASSWD: sha256:$(shasum -a 256 $(which yabai) | awk "{print \$1;}") $(which yabai) --load-sa' to '/private/etc/sudoers.d/yabai'"
 
 stow .
 
