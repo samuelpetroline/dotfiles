@@ -106,6 +106,14 @@ function gundo {
   git reset --soft HEAD@{1}
 }
 
+function gstu() {
+  git stash --include-untracked
+}
+
+function gstp() {
+  git stash pop
+}
+
 function his() {
   atuin search -i
 }
@@ -125,14 +133,23 @@ function killport() {
   kill $(lsof -i :$1)
 }
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
 alias vim="nvim"
 alias lzg="lazygit"
-alias lzd='lazydocker'
-alias tm='task-master'
-alias taskmaster='task-master'
+alias lzd="lazydocker"
+alias tm="task-master"
+alias fz="fzf --preview 'bat --color=always {}' --preview-window '~3'"
 
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
+source <(fzf --zsh)
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
