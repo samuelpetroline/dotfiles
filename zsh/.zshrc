@@ -146,6 +146,7 @@ alias lzg="lazygit"
 alias lzd="lazydocker"
 alias tm="task-master"
 alias fz="fzf --preview 'bat --color=always {}' --preview-window '~3'"
+alias cld="sbx run claude"
 
 eval "$(atuin init zsh)"
 eval "$(zoxide init zsh)"
@@ -160,3 +161,7 @@ source ~/.oh-my-zsh/custom/themes/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="$HOME/.local/bin:$PATH"
 
+autoload -Uz compinit && compinit
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
+
+export PATH=/Users/samuel.petroline/.groundcover/bin:${PATH}
